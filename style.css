@@ -15,6 +15,11 @@
   cursor: url("icons8-select-cursor-24.png"), auto;
 }
 
+a{
+  text-decoration: none;
+  color: #DEDEDE;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 100%;
@@ -221,7 +226,9 @@ body, html {
   position: relative;
   z-index: 2;
 }
-
+.hero .part1 button span a{
+  color: #212121;
+}
 .hero .part1 button::before {
   content: "";
   position: absolute;
