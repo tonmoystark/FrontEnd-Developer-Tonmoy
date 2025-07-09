@@ -149,33 +149,42 @@ document.addEventListener('DOMContentLoaded', function() {
     overlay.className = 'overlay';
     document.body.appendChild(overlay);
     
+    // Function to close the menu
+    function closeMenu() {
+        container2.classList.remove('active');
+        overlay.classList.remove('active');
+        boxButton.classList.remove('active');
+    }
+    
     // Toggle sidebar
     boxButton.addEventListener('click', function(e) {
         e.stopPropagation();
         container2.classList.toggle('active');
         overlay.classList.toggle('active');
-        
-        // Toggle menu icon animation
         this.classList.toggle('active');
     });
     
     // Close when clicking outside
-    overlay.addEventListener('click', function() {
-        container2.classList.remove('active');
-        overlay.classList.remove('active');
-        boxButton.classList.remove('active');
-    });
+    overlay.addEventListener('click', closeMenu);
     
     // Prevent clicks inside container2 from closing it
     container2.addEventListener('click', function(e) {
         e.stopPropagation();
     });
-    document.querySelector('.container2 .first button').addEventListener('click', function(e) {
-    e.stopPropagation();
-    container2.classList.remove('active');
-    overlay.classList.remove('active');
-    boxButton.classList.remove('active');
-});
+    
+    // Close when clicking the exit button
+    document.querySelector('.container2 .first button').addEventListener('click', closeMenu);
+    
+    // Close when clicking any menu item
+    const menuItems = document.querySelectorAll('.container2 ul li a');
+    menuItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Only close if it's not the header item
+            if (!this.parentElement.classList.contains('header')) {
+                closeMenu();
+            }
+        });
+    });
 });
 
 //button effect
@@ -191,6 +200,8 @@ btnEl.addEventListener("mouseover", (e) => {
     btnEl.style.setProperty("--posX", `${posX}px`);
     btnEl.style.setProperty("--posY", `${posY}px`);
 });
+
+
 
 // initial function IIFE
 
@@ -227,8 +238,6 @@ btnEl.addEventListener("mouseover", (e) => {
         const projects = document.querySelectorAll('.project');
         // ... rest of your DOMContentLoaded code
     });
-
-    // ... rest of your existing code
   }
 })();
 
