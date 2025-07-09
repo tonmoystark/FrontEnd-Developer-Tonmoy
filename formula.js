@@ -142,7 +142,6 @@ function createFallingDots() {
 // Start the animation when page loads
 window.addEventListener('load', createFallingDots);
 
-// Add this to the end of your formula.js
 document.addEventListener('DOMContentLoaded', function() {
     const boxButton = document.querySelector('.box');
     const container2 = document.querySelector('.container2');
@@ -193,5 +192,43 @@ btnEl.addEventListener("mouseover", (e) => {
     btnEl.style.setProperty("--posY", `${posY}px`);
 });
 
-//for animation
+// initial function IIFE
+
+(function() {
+  // Show loader immediately
+  const container3 = document.querySelector('.container3');
+  
+  // Hide loader after 3 seconds
+  setTimeout(() => {
+    container3.classList.add('hide');
+    
+    // Remove loader from DOM after animation completes
+    setTimeout(() => {
+      container3.remove();
+      initMainContent();
+    }, 800); // Match this with the CSS transition duration
+  }, 3000);
+
+  function initMainContent() {
+    // All your existing code from formula.js goes here
+    let frontEndData = [
+        {frontEnd : "Javascript", imgF : "./frontend/icons8-javascript.svg"},
+        // ... rest of your data arrays
+    ];
+
+    // ... rest of your existing functions
+    createTechSection("front", frontEndData, "frontEnd", "imgF");
+    createTechSection("backEnd", backEndData, "backEnd", "imgB");
+    createTechSection("baseInfo", dataBase, "database", "imgD");
+    createTechSection("gadget", tools, "tool", "imgT");
+
+    // ... rest of your event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+        const projects = document.querySelectorAll('.project');
+        // ... rest of your DOMContentLoaded code
+    });
+
+    // ... rest of your existing code
+  }
+})();
 
