@@ -28,9 +28,6 @@ let tools = [
     {tool : "Aws", imgT : "./tools/aws-svgrepo-com.svg"},
 ]
 
-
-// Data arrays remain the same...
-
 function createTechSection(containerClass, data, propertyName, imgProperty) {
     const container = document.querySelector(`.${containerClass}`);
     
