@@ -1,6 +1,6 @@
 # Tonmoy - Frontend Developer Portfolio
 
-![Portfolio Preview](./projects/Electronics-Mart.webp)
+![Portfolio Preview](./project%20pic.webp)
 
 A clean, responsive portfolio website built with pure HTML, CSS, and JavaScript.
 
